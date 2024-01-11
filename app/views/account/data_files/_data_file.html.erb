@@ -1,0 +1,29 @@
+<% team = @team || @team %>
+<% context ||= team %>
+<% collection ||= :data_files %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: data_file do %>
+  <tr data-id="<%= data_file.id %>">
+    <%= render "shared/tables/checkbox", object: data_file %>
+    <td><%= render 'shared/attributes/text', attribute: :description, url: [:account, data_file] %></td>
+    <td><%= render 'shared/attributes/option', attribute: :type %></td>
+    <td><%= render 'shared/attributes/date', attribute: :relevant_date %></td>
+    <td><%= render 'shared/attributes/file', attribute: :file %></td>
+    <td class="text-center"><%= render 'shared/attributes/option', attribute: :valid %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, data_file %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, data_file], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, data_file %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, data_file], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(data_file)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

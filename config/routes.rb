@@ -68,6 +68,7 @@ Rails.application.routes.draw do
         end
 
         resources :projects
+        resources :data_files
       end
     end
   end

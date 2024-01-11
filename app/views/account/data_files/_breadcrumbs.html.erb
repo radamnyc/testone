@@ -1,0 +1,8 @@
+<% data_file ||= @data_file %>
+<% team ||= @team || data_file&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :data_files] %>
+<% if data_file&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: data_file.label_string, url: [:account, data_file] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'data_files' %>

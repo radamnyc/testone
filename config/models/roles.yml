@@ -1,5 +1,6 @@
 default:
   models:
+    DataFile: read
     Project: read
     Team: read
     Membership:
@@ -29,6 +30,7 @@ admin:
     - admin
     - editor
   models:
+    DataFile: manage
     Project: manage
     Team: manage
     Membership: manage

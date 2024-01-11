@@ -1,0 +1,124 @@
+en:
+  data_files: &data_files
+    label: &label Data Files
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-briefcase
+    buttons: &buttons
+      new: Add New Data File
+      create: Create Data File
+      edit: Edit Data File
+      update: Update Data File
+      destroy: Remove Data File
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{data_file_name}? This will also remove any child resources and can't be undone.
+    data_file:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Data File ID
+      team_id:
+        heading: Team ID
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+      type:
+        _: &type Type
+        label: *type
+        heading: *type
+        placeholder: None
+        options:
+          one: One
+          two: Two
+          three: Three
+      relevant_date:
+        _: &relevant_date Relevant Date
+        label: *relevant_date
+        heading: *relevant_date
+      file:
+        _: &file File
+        label: *file
+        heading: *file
+      valid:
+        _: &valid Valid
+        label: *valid
+        heading: *valid
+        options:
+          yes: "Yes"
+          no: "No"
+      notes:
+        _: &notes Notes
+        label: *notes
+        heading: *notes
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Data Files"
+      index: "List Data Files"
+      create: "Add a New Data File"
+      member_actions: "Actions for an Individual Data File"
+      show: "Retrieve a Data File"
+      update: "Update a Data File"
+      destroy: "Delete a Data File"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Data Files"
+      contexts:
+        team:
+          header: Data Files
+          description: Below is a list of Data Files that have been added for %{team_name}.
+          description_empty: No Data Files have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{data_file_name}"
+      header: Data File Details
+      description: Below are the details we have for %{data_file_name}.
+      manage_description: You'll also find options for updating these details or removing %{data_file_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Data File for %{team_name}"
+      header: New Data File Details
+      description: Please provide the details of the new Data File you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{data_file_name}"
+      header: Edit Data File Details
+      description: You can update the details or settings for %{data_file_name} below.
+      form: *form
+    notifications:
+      created: Data File was successfully created.
+      updated: Data File was successfully updated.
+      destroyed: Data File was successfully destroyed.
+  account:
+    data_files: *data_files
+  activerecord:
+    attributes:
+      data_file:
+        description: *description
+        type: *type
+        relevant_date: *relevant_date
+        file: *file
+        valid: *valid
+        notes: *notes
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
