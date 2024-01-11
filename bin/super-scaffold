@@ -11,6 +11,7 @@ when "crud"
   ARGV.shift
   nil
 when "crud-field"
+  ARGV.shift
   "field"
 when "incoming-webhooks"
   "incoming_webhooks"
