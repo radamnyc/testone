@@ -32,6 +32,7 @@ def assert_proper_object_serialization(project_data)
   project = Project.find(project_data["id"])
 
   assert_equal_or_nil project_data['name'], project.name
+  assert_equal_or_nil project_data['description'], project.description
   # 🚅 super scaffolding will insert new fields above this line.
 
   assert_equal project_data["team_id"], project.team_id
@@ -91,6 +92,7 @@ test "update" do
     access_token: access_token,
     project: {
       name: 'Alternative String Value',
+      description: 'Alternative String Value',
       # 🚅 super scaffolding will also insert new fields above this line.
     }
   }
@@ -103,6 +105,7 @@ test "update" do
   # But we have to manually assert the value was properly updated.
   @project.reload
   assert_equal @project.name, 'Alternative String Value'
+  assert_equal @project.description, 'Alternative String Value'
   # 🚅 super scaffolding will additionally insert new fields above this line.
 
   # Also ensure we can't do that same action as another user.
