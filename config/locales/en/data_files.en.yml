@@ -35,9 +35,8 @@ en:
         heading: *type
         placeholder: None
         options:
-          one: One
-          two: Two
-          three: Three
+          Inventory: Inventory
+          FacilityInfo: Facility Info
       relevant_date:
         _: &relevant_date Relevant Date
         label: *relevant_date
