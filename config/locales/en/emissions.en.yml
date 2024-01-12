@@ -31,9 +31,9 @@ en:
         heading: *source_type
         placeholder: Select
         options:
-          one: One
-          two: Two
-          three: Three
+          file: file
+          import: import
+          manual: manual
       source_reference:
         _: &source_reference Source Reference
         label: *source_reference
@@ -44,9 +44,9 @@ en:
         heading: *emission_type
         placeholder: None
         options:
-          one: One
-          two: Two
-          three: Three
+          KWhs: KWhs
+          Therms: Therms
+          Fuel: Fuel
       effective_date:
         _: &effective_date Effective Date
         label: *effective_date
