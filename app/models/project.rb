@@ -6,6 +6,8 @@ class Project < ApplicationRecord
   belongs_to :team
   # 🚅 add belongs_to associations above.
 
+  has_many :project_emissions, dependent: :destroy
+  has_many :emissions, through: :project_emissions
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.
