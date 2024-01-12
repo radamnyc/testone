@@ -7,6 +7,8 @@ class DataFile < ApplicationRecord
   belongs_to :team
   # 🚅 add belongs_to associations above.
 
+  has_many :project_data_files, dependent: :destroy
+  has_many :projects, through: :project_data_files
   # 🚅 add has_many associations above.
 
   has_one_attached :file
