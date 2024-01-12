@@ -1,0 +1,24 @@
+<% cancel_path ||= emission.persisted? ? [:account, emission] : [:account, @team, :emissions] %>
+
+<%= form_with model: emission, url: (emission.persisted? ? [:account, emission] : [:account, @team, :emissions]), local: true, class: 'form' do |form| %>
+  <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
+    <%= render 'account/shared/forms/errors', form: form %>
+
+    <% with_field_settings form: form do %>
+      <%= render 'shared/fields/super_select', method: :source_type, html_options: {autofocus: true} %>
+      <%= render 'shared/fields/text_field', method: :source_reference %>
+      <%= render 'shared/fields/super_select', method: :emission_type %>
+      <%= render 'shared/fields/date_field', method: :effective_date %>
+      <%= render 'shared/fields/text_field', method: :location %>
+      <%= render 'shared/fields/text_field', method: :region %>
+      <%= render 'shared/fields/options', method: :validated %>
+      <%= render 'shared/fields/text_area', method: :notes %>
+      <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <% end %>
+
+    <div class="buttons">
+      <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+      <%= link_to t('global.buttons.cancel'), cancel_path, class: "button-secondary" %>
+    </div>
+  <% end %>
+<% end %>

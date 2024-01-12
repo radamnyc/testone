@@ -1,0 +1,31 @@
+<% team = @team || @team %>
+<% context ||= team %>
+<% collection ||= :emissions %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: emission do %>
+  <tr data-id="<%= emission.id %>">
+    <%= render "shared/tables/checkbox", object: emission %>
+    <td><%= render 'shared/attributes/option', attribute: :source_type, url: [:account, emission] %></td>
+    <td><%= render 'shared/attributes/text', attribute: :source_reference %></td>
+    <td><%= render 'shared/attributes/option', attribute: :emission_type %></td>
+    <td><%= render 'shared/attributes/date', attribute: :effective_date %></td>
+    <td><%= render 'shared/attributes/text', attribute: :location %></td>
+    <td><%= render 'shared/attributes/text', attribute: :region %></td>
+    <td class="text-center"><%= render 'shared/attributes/option', attribute: :validated %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, emission %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, emission], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, emission %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, emission], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(emission)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

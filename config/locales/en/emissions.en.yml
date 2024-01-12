@@ -1,0 +1,139 @@
+en:
+  emissions: &emissions
+    label: &label Emissions
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-briefcase
+    buttons: &buttons
+      new: Add New Emission
+      create: Create Emission
+      edit: Edit Emission
+      update: Update Emission
+      destroy: Remove Emission
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{emission_name}? This will also remove any child resources and can't be undone.
+    emission:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Emission ID
+      team_id:
+        heading: Team ID
+      source_type:
+        _: &source_type Source Type
+        label: *source_type
+        heading: *source_type
+        placeholder: Select
+        options:
+          one: One
+          two: Two
+          three: Three
+      source_reference:
+        _: &source_reference Source Reference
+        label: *source_reference
+        heading: *source_reference
+      emission_type:
+        _: &emission_type Emission Type
+        label: *emission_type
+        heading: *emission_type
+        placeholder: None
+        options:
+          one: One
+          two: Two
+          three: Three
+      effective_date:
+        _: &effective_date Effective Date
+        label: *effective_date
+        heading: *effective_date
+      location:
+        _: &location Location
+        label: *location
+        heading: *location
+      region:
+        _: &region Region
+        label: *region
+        heading: *region
+      validated:
+        _: &validated Validated
+        label: *validated
+        heading: *validated
+        options:
+          yes: "Yes"
+          no: "No"
+      notes:
+        _: &notes Notes
+        label: *notes
+        heading: *notes
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Emissions"
+      index: "List Emissions"
+      create: "Add a New Emission"
+      member_actions: "Actions for an Individual Emission"
+      show: "Retrieve a Emission"
+      update: "Update a Emission"
+      destroy: "Delete a Emission"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Emissions"
+      contexts:
+        team:
+          header: Emissions
+          description: Below is a list of Emissions that have been added for %{team_name}.
+          description_empty: No Emissions have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{emission_name}"
+      header: Emission Details
+      description: Below are the details we have for %{emission_name}.
+      manage_description: You'll also find options for updating these details or removing %{emission_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Emission for %{team_name}"
+      header: New Emission Details
+      description: Please provide the details of the new Emission you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{emission_name}"
+      header: Edit Emission Details
+      description: You can update the details or settings for %{emission_name} below.
+      form: *form
+    notifications:
+      created: Emission was successfully created.
+      updated: Emission was successfully updated.
+      destroyed: Emission was successfully destroyed.
+  account:
+    emissions: *emissions
+  activerecord:
+    attributes:
+      emission:
+        source_type: *source_type
+        source_reference: *source_reference
+        emission_type: *emission_type
+        effective_date: *effective_date
+        location: *location
+        region: *region
+        validated: *validated
+        notes: *notes
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
