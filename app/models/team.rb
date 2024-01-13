@@ -20,7 +20,7 @@ class Team < ApplicationRecord
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
-
+  enum team_type: { inactive: 0, client: 1, admin: 2 }
   # 🚅 add delegations above.
 
   # 🚅 add methods above.
