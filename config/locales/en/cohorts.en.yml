@@ -1,0 +1,106 @@
+en:
+  cohorts: &cohorts
+    label: &label Cohorts
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-briefcase
+    buttons: &buttons
+      new: Add New Cohort
+      create: Create Cohort
+      edit: Edit Cohort
+      update: Update Cohort
+      destroy: Remove Cohort
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{cohort_name}? This will also remove any child resources and can't be undone.
+    cohort:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Cohort ID
+      team_id:
+        heading: Team ID
+      closing_date:
+        _: &closing_date Closing Date
+        label: *closing_date
+        heading: *closing_date
+      energy_type:
+        _: &energy_type Energy Type
+        label: *energy_type
+        heading: *energy_type
+        placeholder: None
+        options:
+          one: One
+          two: Two
+          three: Three
+      amount:
+        _: &amount Amount
+        label: *amount
+        heading: *amount
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Cohorts"
+      index: "List Cohorts"
+      create: "Add a New Cohort"
+      member_actions: "Actions for an Individual Cohort"
+      show: "Retrieve a Cohort"
+      update: "Update a Cohort"
+      destroy: "Delete a Cohort"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Cohorts"
+      contexts:
+        team:
+          header: Cohorts
+          description: Below is a list of Cohorts that have been added for %{team_name}.
+          description_empty: No Cohorts have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{cohort_name}"
+      header: Cohort Details
+      description: Below are the details we have for %{cohort_name}.
+      manage_description: You'll also find options for updating these details or removing %{cohort_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Cohort for %{team_name}"
+      header: New Cohort Details
+      description: Please provide the details of the new Cohort you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{cohort_name}"
+      header: Edit Cohort Details
+      description: You can update the details or settings for %{cohort_name} below.
+      form: *form
+    notifications:
+      created: Cohort was successfully created.
+      updated: Cohort was successfully updated.
+      destroyed: Cohort was successfully destroyed.
+  account:
+    cohorts: *cohorts
+  activerecord:
+    attributes:
+      cohort:
+        closing_date: *closing_date
+        energy_type: *energy_type
+        amount: *amount
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

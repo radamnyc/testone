@@ -1,22 +1,18 @@
-class Team < ApplicationRecord
-  include Teams::Base
-  include Webhooks::Outgoing::TeamSupport
+class Cohort < ApplicationRecord
   # 🚅 add concerns above.
 
+  # 🚅 add attribute accessors above.
+
+  belongs_to :team
   # 🚅 add belongs_to associations above.
 
-  has_many :projects, dependent: :destroy
-  has_many :data_files, dependent: :destroy
-  has_many :emissions, dependent: :destroy
-  has_many :cohorts, dependent: :destroy
   # 🚅 add has_many associations above.
-
-  # 🚅 add oauth providers above.
 
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
+  validates :closing_date, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

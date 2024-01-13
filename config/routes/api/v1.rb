@@ -34,6 +34,7 @@ shallow do
       resources :projects
       resources :data_files
       resources :emissions
+      resources :cohorts
     end
   end
 end

@@ -5,6 +5,7 @@
     <%= render 'account/projects/index', projects: @team.projects, hide_back: true %>
     <%= render 'account/data_files/index', data_files: @team.data_files, hide_back: true %>
     <%= render 'account/emissions/index', emissions: @team.emissions, hide_back: true %>
+    <%= render 'account/cohorts/index', cohorts: @team.cohorts, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
     
     <%= render 'account/scaffolding/absolutely_abstract/creative_concepts/index', creative_concepts: @team.scaffolding_absolutely_abstract_creative_concepts, hide_back: true unless scaffolding_things_disabled? %>
