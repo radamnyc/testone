@@ -10,6 +10,7 @@ class Project < ApplicationRecord
   has_many :emissions, through: :project_emissions
   has_many :project_data_files, dependent: :destroy
   has_many :data_files, through: :project_data_files
+  has_many :cohort_subscriptions, dependent: :destroy
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

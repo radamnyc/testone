@@ -1,0 +1,8 @@
+<% cohort_subscription ||= @cohort_subscription %>
+<% project ||= @project || cohort_subscription&.project %>
+<%= render 'account/projects/breadcrumbs', project: project %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, project, :cohort_subscriptions] %>
+<% if cohort_subscription&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: cohort_subscription.label_string, url: [:account, cohort_subscription] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'cohort_subscriptions' %>

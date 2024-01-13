@@ -1,5 +1,6 @@
 default:
   models:
+    CohortSubscription: read
     Cohort: read
     Emission: read
     DataFile: read
@@ -32,6 +33,7 @@ admin:
     - admin
     - editor
   models:
+    CohortSubscription: manage
     Cohort: manage
     Emission: manage
     DataFile: manage

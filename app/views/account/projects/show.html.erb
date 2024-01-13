@@ -30,6 +30,7 @@
       <% end %>
     <% end %>
 
+    <%= render 'account/cohort_subscriptions/index', cohort_subscriptions: @project.cohort_subscriptions, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
   <% end %>
 <% end %>

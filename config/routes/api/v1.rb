@@ -31,7 +31,9 @@ shallow do
         # 🚅 super scaffolding will insert new integration installations above this line.
       end
 
-      resources :projects
+      resources :projects do
+        resources :cohort_subscriptions
+      end
       resources :data_files
       resources :emissions
       resources :cohorts

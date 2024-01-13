@@ -1,0 +1,108 @@
+en:
+  cohort_subscriptions: &cohort_subscriptions
+    label: &label Cohort Subscriptions
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Cohort Subscription
+      create: Create Cohort Subscription
+      edit: Edit Cohort Subscription
+      update: Update Cohort Subscription
+      destroy: Remove Cohort Subscription
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{cohort_subscription_name}? This will also remove any child resources and can't be undone.
+    cohort_subscription:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Cohort Subscription ID
+      project_id:
+        heading: Project ID
+      cohort_id: &cohort
+        _: &cohort_id Cohort
+        label: *cohort_id
+        heading: *cohort_id
+        placeholder: Select
+      cohort: *cohort
+      state_of_interest:
+        _: &state_of_interest State Of Interest
+        label: *state_of_interest
+        heading: *state_of_interest
+        placeholder: None
+        options:
+          one: One
+          two: Two
+          three: Three
+      amount:
+        _: &amount Amount
+        label: *amount
+        heading: *amount
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Cohort Subscriptions"
+      index: "List Cohort Subscriptions"
+      create: "Add a New Cohort Subscription"
+      member_actions: "Actions for an Individual Cohort Subscription"
+      show: "Retrieve a Cohort Subscription"
+      update: "Update a Cohort Subscription"
+      destroy: "Delete a Cohort Subscription"
+      fields: *fields
+    index:
+      section: "%{projects_possessive} Cohort Subscriptions"
+      contexts:
+        project:
+          header: Cohort Subscriptions
+          description: Below is a list of Cohort Subscriptions that have been added for %{project_name}.
+          description_empty: No Cohort Subscriptions have been added for %{project_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{cohort_subscription_name}"
+      header: Cohort Subscription Details
+      description: Below are the details we have for %{cohort_subscription_name}.
+      manage_description: You'll also find options for updating these details or removing %{cohort_subscription_name} from %{project_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Cohort Subscription for %{project_name}"
+      header: New Cohort Subscription Details
+      description: Please provide the details of the new Cohort Subscription you'd like to add to %{project_name}.
+      form: *form
+    edit:
+      section: "%{cohort_subscription_name}"
+      header: Edit Cohort Subscription Details
+      description: You can update the details or settings for %{cohort_subscription_name} below.
+      form: *form
+    notifications:
+      created: Cohort Subscription was successfully created.
+      updated: Cohort Subscription was successfully updated.
+      destroyed: Cohort Subscription was successfully destroyed.
+  account:
+    cohort_subscriptions: *cohort_subscriptions
+  activerecord:
+    attributes:
+      cohort_subscription:
+        cohort_id: *cohort_id
+        state_of_interest: *state_of_interest
+        amount: *amount
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

@@ -26,6 +26,7 @@ components:
     <%= automatic_components_for DataFile %>
     <%= automatic_components_for Emission %>
     <%= automatic_components_for Cohort %>
+    <%= automatic_components_for CohortSubscription %>
     <%# 🚅 super scaffolding will insert new components above this line. %>
   parameters:
     id:
@@ -64,4 +65,5 @@ paths:
   <%= automatic_paths_for DataFile, Team %>
   <%= automatic_paths_for Emission, Team %>
   <%= automatic_paths_for Cohort, Team %>
+  <%= automatic_paths_for CohortSubscription, Project %>
   <%# 🚅 super scaffolding will insert new paths above this line. %>

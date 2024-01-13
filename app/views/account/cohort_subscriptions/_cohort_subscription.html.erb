@@ -1,0 +1,27 @@
+<% project = @project || @project %>
+<% context ||= project %>
+<% collection ||= :cohort_subscriptions %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: cohort_subscription do %>
+  <tr data-id="<%= cohort_subscription.id %>">
+    <%= render "shared/tables/checkbox", object: cohort_subscription %>
+    <td><%= render 'shared/attributes/belongs_to', attribute: :cohort, url: [:account, cohort_subscription] %></td>
+    <td><%= render 'shared/attributes/option', attribute: :state_of_interest %></td>
+    <td><%= render 'shared/attributes/number', attribute: :amount %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, cohort_subscription %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, cohort_subscription], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, cohort_subscription %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, cohort_subscription], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(cohort_subscription)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
